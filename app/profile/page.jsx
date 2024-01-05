@@ -34,7 +34,7 @@ const MyProfile = () => {
 
     if (hasConfirmed) {
       try {
-        await fetch(`/api/prompt/${post._id.toString()}`, {
+        await fetch(`/api/prompt/${post._id}`, {
           method: "DELETE",
         });
 
@@ -49,7 +49,7 @@ const MyProfile = () => {
 
   return (
     <Profile
-      name='My'
+      name={session?.user.name}
       desc='Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination'
       data={myPosts}
       handleEdit={handleEdit}
